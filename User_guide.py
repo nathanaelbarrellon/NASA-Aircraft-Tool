@@ -75,36 +75,61 @@ systematic approach to rank different design alternatives based on multiple crit
 
 st.markdown("---")
 
-st.header("2. How to Use This Tool ?")
-st.write("This tool is divided into tree main sections:")
+st.markdown("""
+<h2 style='margin-bottom: 0.5rem;'>2. How to Use This Tool</h2>
+<p style='color:#cccccc;'>
+This tool is divided into three main sections:
+</p>
+""", unsafe_allow_html=True)
 
-col1, col2, col3 = st.columns([1,1,1])
+# --- THREE COLUMNS CLEANER VISUAL ---
+col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.markdown("**🏠 Home page / User guide**")
-    st.write("""
-    - Understanding of tool purpose
-    - Understanding the outputs
-    """)
+    st.markdown("""
+    <div style='background-color:rgba(255,255,255,0.05);
+                padding:1rem; border-radius:10px;
+                border-left:4px solid #00CED1;'>
+        <h4>🏠 Home Page / User Guide</h4>
+        <ul>
+            <li>Understand the tool's purpose</li>
+            <li>Understand the outputs</li>
+        </ul>
+    </div>
+    """, unsafe_allow_html=True)
 
 with col2:
-    st.markdown("**📊 Inputs parameters**")
-    st.write("""
-    - Alternatives to display
-    - Type of electrification
-    - Confidence in projecting technology assumptions
-    - Time frame
-    - Aircraft size
-    - Electric architecture
-    - Criteria Weight
-    """)
+    st.markdown("""
+    <div style='background-color:rgba(255,255,255,0.05);
+                padding:1rem; border-radius:10px;
+                border-left:4px solid #00CED1;'>
+        <h4>📊 Input Parameters</h4>
+        <ul>
+            <li>Alternatives to display</li>
+            <li>Type of electrification</li>
+            <li>Confidence in projecting tech assumptions</li>
+            <li>Time frame</li>
+            <li>Aircraft size</li>
+            <li>Electric architecture</li>
+            <li>Criteria weights</li>
+        </ul>
+    </div>
+    """, unsafe_allow_html=True)
 
 with col3:
-    st.markdown("**📈 Results Visualizations**")
-    st.write("""
-    - Radar charts
-    - Compare top performers
-    """)
+    st.markdown("""
+    <div style='background-color:rgba(255,255,255,0.05);
+                padding:1rem; border-radius:10px;
+                border-left:4px solid #00CED1;'>
+        <h4>📈 Results Visualizations</h4>
+        <ul>
+            <li>Radar charts</li>
+            <li>Compare top performers</li>
+        </ul>
+    </div>
+    """, unsafe_allow_html=True)
+
+st.markdown("<br>", unsafe_allow_html=True)
 
 # Section 2: Step-by-Step Guide
 st.header("Step-by-Step Process")
