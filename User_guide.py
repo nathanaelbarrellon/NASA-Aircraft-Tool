@@ -131,40 +131,53 @@ with col3:
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-# Section 2: Step-by-Step Guide
-st.header("Step-by-Step Process")
-st.write("Go to the TOOL page and follow the instructions below")
+st.markdown("""
+<div style='
+    border: 1.5px solid rgba(0, 206, 209, 0.6);
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.02);
+    padding: 1.8rem 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 10px rgba(0, 206, 209, 0.15);
+'>
+    <h2 style='color:#00CED1; margin-bottom:0.8rem;'> Step-by-Step Process</h2>
+    <p>Go to the <b>TOOL</b> page and follow the instructions below.</p>
+    <h4>1️⃣ Configure the Initial Simulation Parameters</h4>
+    <ul>
+        <li>Choose the number of aircraft alternatives to display at the end of the TOPSIS analysis</li>
+        <li>Choose the type of electrification (hybrid-electric or full electric) ❌</li>
+        <li>Choose the confidence in projecting technology assumptions ❌</li>
+        <li>Choose the timeframe desired ❌</li>
+        <li>Choose the aircraft size ❌</li>
+        <li>Choose the electric architecture ❌</li>
+    </ul>
+    <p style='color:#999; font-size:0.9rem;'>
+        The ❌ symbol refers to buttons present on the tool but not functional at the moment.
+    </p>
+    <hr style='border:0.3px solid #333; margin:1rem 0;'>
+    <h4>2️⃣ Set Criteria Weights</h4>
+    <p>Use the sliders to assign importance (1–5) to each criterion:</p>
+    <ul>
+        <li>Aircraft Cruise Speed</li>
+        <li>Total Energy Required</li>
+        <li>Direct Operating Cost</li>
+        <li>Required Yield</li>
+        <li>Acquisition Price</li>
+        <li>Trip Fuel</li>
+    </ul>
+    <p>The weight breakdown is shown on a pie chart to visualize the distribution of importance among criteria.</p>
+    <hr style='border:0.3px solid #333; margin:1rem 0;'>
+    <h3 style='color:white;'>3️⃣ Run the TOPSIS Analysis</h3>
+    <ul>
+        <li>Click on the 🚀 <b>Run TOPSIS Analysis</b> button</li>
+        <li>Examine the simulated aircraft performance table</li>
+        <li>Review the TOPSIS ranking and visualization results</li>
+    </ul>
+    Once completed, you can explore detailed comparisons on the Vizualisation page
+</div>
+""", unsafe_allow_html=True)
 
-st.subheader("1️⃣ Configure the initial simulation Parameters")
-st.write("""
-1. Choose the number of aircraft alternatives to display at the end of the TOPSIS Analysis 
-2. Choose the type of electrification (hybrid-electric or Full electric) ❌
-3. Choose the confidence in projecting technology assumptions ❌
-4. Choose the timeframe desired ❌
-5. Choose the aircraft size ❌
-6. Choose the electric architecture ❌
-""")
-st.write("_The ❌ symbol refers to buttons present on the tool but not functional at the moment._")
-
-st.subheader("2️⃣ Set Criteria Weights")
-st.write("""
-Use the sliders to assign importance (1-5) to each criterion:
-- Aircraft Cruise Speed
-- Total Energy Required
-- Direct Operating Cost
-- Required Yield
-- Acquisition Price
-- Trip Fuel
-""")
-st.write("The weight breakdown is shows on a pie chart to help visualize the importance distribution among criteria.")
-
-st.subheader("3️⃣ Run the Topsis analysis")
-st.write("""
-1. Click on the button
-2. Examine the initial table with the performance of each alternatives
-3. Examine the Topsis ranking depending on the inputs (table and graph)
-""")
-st.write("It is now possible to watch the results on the Vizualisation page ")
 st.markdown("---")
 
 # Section 4
