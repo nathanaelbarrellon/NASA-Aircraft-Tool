@@ -33,7 +33,7 @@ with col1:
     """, unsafe_allow_html=True)
 
 with col2:
-    st.image("https://www.nasa.gov/wp-content/themes/nasa/assets/images/nasa-logo.svg", width=90)
+    st.image("https://www.nasa.gov/wp-content/themes/nasa/assets/images/nasa-logo.svg", width=120)
 
 st.markdown("<hr style='margin-top:1rem; border: 1px solid #333;'>", unsafe_allow_html=True)
 
@@ -207,4 +207,18 @@ else:
     st.warning("Please run the analysis on the main page first to display the visualizations.")
 
 st.markdown("---")
-st.caption(f"Streamlit Prototype - last update {datetime.now().strftime('%d %B %Y - %H:%M')}")
+# --- FOOTER SECTION WITH LOGO ---
+col_footer_left, col_footer_right = st.columns([4, 1])
+
+with col_footer_left:
+    st.caption(f"Streamlit Prototype - last update {datetime.now().strftime('%d %B %Y - %H:%M')}")
+
+with col_footer_right:
+    st.markdown(
+        """
+        <div style='text-align: right; margin-top: -25px;'>
+            <img src='https://www.asdl.gatech.edu/images/hero/ASDL-Icon-sketchy-blue%2Bgold.gif' width='150'>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )

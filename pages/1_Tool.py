@@ -8,8 +8,6 @@ from datetime import datetime
 # --- PAGE CONFIGURATION ---
 st.set_page_config(page_title="TOPSIS Dashboard", page_icon="✈️", layout="wide")
 
-import streamlit as st
-
 # Deux colonnes : texte à gauche, logo à droite
 col1, col2 = st.columns([5, 1])
 
@@ -35,10 +33,9 @@ with col1:
     """, unsafe_allow_html=True)
 
 with col2:
-    st.image("https://www.nasa.gov/wp-content/themes/nasa/assets/images/nasa-logo.svg", width=90)
+    st.image("https://www.nasa.gov/wp-content/themes/nasa/assets/images/nasa-logo.svg", width=120)
 
 st.markdown("<hr style='margin-top:1rem; border: 1px solid #333;'>", unsafe_allow_html=True)
-
 
 # --- FIX Pandas Styler rendering limit for large DataFrames ---
 pd.set_option("styler.render.max_elements", 5_000_000)
@@ -46,25 +43,26 @@ pd.set_option("styler.render.max_elements", 5_000_000)
 # --- GENERAL INPUTS ---
 st.header("Simulation Parameters")
 
-col1, col2, col3 = st.columns(3)
-with col1:
-    n_alternatives = st.number_input("Number of aircraft cases", min_value=2, max_value=1000000, value=50)
-with col2:
-    top_n = st.number_input("Top alternatives to display", min_value=1, max_value=n_alternatives, value=10)
-with col3:
-    electrif = st.selectbox("Electrification - Unfunctional", ["None", "Hybrid", "Full Electric"])
+col1, col2, col3, col4 = st.columns(4)
 
-col4, col5, col6,col7 = st.columns(4)
-with col4:
-    tech_orient = st.radio("Confidence in projecting technology assumptions - Unfunctional", ["Conservative", "Aggressive", "Nominal"])
-with col5:
-    timeframe = st.radio("Time frame desired - Unfunctional", ["2035", "2045", "2055"])
-with col6:
+n_alternatives = 1000  # fixed value instead of user input
+with col1:
+    top_n = st.number_input("Top alternatives to display", min_value=1, max_value=n_alternatives, value=10)
+with col2:
+    electrif = st.selectbox("Electrification - Unfunctional", ["None", "Hybrid", "Full Electric"])
+with col3:
     passengers = st.selectbox("Aircraft size (pax)", [8, 20, 50, 70, 100, 150, 210, 300])
-with col7:
+with col4:
     architecture = st.multiselect("Electric Architecture - Unfunctionnal", ["Series", "Parallel", "Turboelectric"])
 
+col5, col6 = st.columns(2)
+with col5:
+    tech_orient = st.radio("Confidence in projecting technology assumptions - Unfunctional", ["Conservative", "Aggressive", "Nominal"])
+with col6:
+    timeframe = st.radio("Time frame desired - Unfunctional", ["2035", "2045", "2055"])
+
 st.markdown("---")
+
 
 # --- CRITERIA ---
 inputs_with_units = [
@@ -219,7 +217,6 @@ if st.button("🚀 Run TOPSIS Analysis"):
         return [color] * len(row)
 
     st.markdown("---")
-    # Sauvegarde des données dans la session state
     st.session_state['initial_data'] = df.set_index('Case')
     st.session_state['topsis_results'] = df_sorted.set_index('Case')
     st.session_state['weights'] = weights
@@ -254,7 +251,6 @@ if st.button("🚀 Run TOPSIS Analysis"):
     )
     st.plotly_chart(fig, use_container_width=True)
 
-    # --- BEST ALTERNATIVE ---
     best_alt = topN.iloc[0]["Case"]
     best_score = topN.iloc[0]["TOPSIS Score"]
     st.success(f"✅ **Best aircraft configuration:** {best_alt} — TOPSIS Score: {best_score:.4f}")
@@ -262,6 +258,20 @@ if st.button("🚀 Run TOPSIS Analysis"):
 else:
     st.info("Click **🚀 Run TOPSIS Analysis** to generate simulated aircraft data and compute the ranking.")
 
-
 st.markdown("---")
-st.caption(f"Streamlit Prototype - last update {datetime.now().strftime('%d %B %Y - %H:%M')}")
+# --- FOOTER SECTION WITH LOGO ---
+col_footer_left, col_footer_right = st.columns([4, 1])
+
+with col_footer_left:
+    st.caption(f"Streamlit Prototype - last update {datetime.now().strftime('%d %B %Y - %H:%M')}")
+
+with col_footer_right:
+    st.markdown(
+        """
+        <div style='text-align: right; margin-top: -25px;'>
+            <img src='https://www.asdl.gatech.edu/images/hero/ASDL-Icon-sketchy-blue%2Bgold.gif' width='150'>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
