@@ -33,7 +33,7 @@ with col1:
     """, unsafe_allow_html=True)
 
 with col2:
-    st.image("https://www.nasa.gov/wp-content/themes/nasa/assets/images/nasa-logo.svg", width=120)
+    st.image("https://www.asdl.gatech.edu/images/hero/ASDL-Icon-sketchy-blue%2Bgold.gif", width=200)
 
 st.markdown("<hr style='margin-top:1rem; border: 1px solid #333;'>", unsafe_allow_html=True)
 
@@ -170,7 +170,7 @@ if 'initial_data' in st.session_state and 'weights' in st.session_state and 'top
                     font=dict(size=13)
                 ),
                 title=dict(
-                    text="Overview of Aircraft Characteristics (Normalized Radar Chart)",
+                    text="Overview of Aircraft Characteristics",
                     font=dict(size=20, color="white"),
                     x=0.5,
                     xanchor='center'
@@ -207,6 +207,7 @@ else:
     st.warning("Please run the analysis on the main page first to display the visualizations.")
 
 st.markdown("---")
+
 # --- FOOTER SECTION WITH LOGO ---
 col_footer_left, col_footer_right = st.columns([4, 1])
 
@@ -217,8 +218,10 @@ with col_footer_right:
     st.markdown(
         """
         <div style='text-align: right; margin-top: -25px;'>
-            <img src='https://www.asdl.gatech.edu/images/hero/ASDL-Icon-sketchy-blue%2Bgold.gif' width='150'>
+            <img src='https://www.nasa.gov/wp-content/themes/nasa/assets/images/nasa-logo.svg' width='150'>
         </div>
         """,
         unsafe_allow_html=True
     )
+
+

@@ -33,7 +33,7 @@ with col1:
     """, unsafe_allow_html=True)
 
 with col2:
-    st.image("https://www.nasa.gov/wp-content/themes/nasa/assets/images/nasa-logo.svg", width=120)
+    st.image("https://www.asdl.gatech.edu/images/hero/ASDL-Icon-sketchy-blue%2Bgold.gif", width=200)
 
 st.markdown("<hr style='margin-top:1rem; border: 1px solid #333;'>", unsafe_allow_html=True)
 
@@ -49,11 +49,11 @@ n_alternatives = 1000  # fixed value instead of user input
 with col1:
     top_n = st.number_input("Top alternatives to display", min_value=1, max_value=n_alternatives, value=10)
 with col2:
-    electrif = st.selectbox("Electrification - Unfunctional", ["None", "Hybrid", "Full Electric"])
+    electrif = st.selectbox("Propulsion Type - Unfunctional", ["Turboprop","Turbofan"])
 with col3:
     passengers = st.selectbox("Aircraft size (pax)", [8, 20, 50, 70, 100, 150, 210, 300])
 with col4:
-    architecture = st.multiselect("Electric Architecture - Unfunctionnal", ["Series", "Parallel", "Turboelectric"])
+    architecture = st.multiselect("Electric Architecture - Unfunctionnal", ["Hybrid", "Series Hybrid", "Parallel Hybrid", "Full Electric", "Turboelectric"])
 
 col5, col6 = st.columns(2)
 with col5:
@@ -71,7 +71,7 @@ inputs_with_units = [
     "Direct operating cost plus interest ($/mile)",
     "Required yield per revenue passenger mile ($/mile)",
     "Acquisition price with spares ($M)",
-    "Trip Fuel (kg)"
+    "NOx Emission (g/kg of fuel)"
 ]
 
 inputs = [
@@ -80,7 +80,7 @@ inputs = [
     "Direct operating cost plus interest",
     "Required yield per revenue passenger mile",
     "Acquisition price with spares",
-    "Trip Fuel"
+    "NOx Emission"
 ]
 
 st.header("Criteria Weights")
@@ -269,7 +269,7 @@ with col_footer_right:
     st.markdown(
         """
         <div style='text-align: right; margin-top: -25px;'>
-            <img src='https://www.asdl.gatech.edu/images/hero/ASDL-Icon-sketchy-blue%2Bgold.gif' width='150'>
+            <img src='https://www.nasa.gov/wp-content/themes/nasa/assets/images/nasa-logo.svg' width='150'>
         </div>
         """,
         unsafe_allow_html=True

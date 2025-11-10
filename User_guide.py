@@ -36,7 +36,7 @@ with col1:
     """, unsafe_allow_html=True)
 
 with col2:
-    st.image("https://www.nasa.gov/wp-content/themes/nasa/assets/images/nasa-logo.svg", width=120)
+    st.image("https://www.asdl.gatech.edu/images/hero/ASDL-Icon-sketchy-blue%2Bgold.gif", width=200)
 
 st.markdown("<hr style='margin-top:1rem; border: 1px solid #333;'>", unsafe_allow_html=True)
 
@@ -157,7 +157,7 @@ st.markdown("""
     </p>
     <hr style='border:0.3px solid #333; margin:1rem 0;'>
     <h4>2️⃣ Set Criteria Weights</h4>
-    <p>Use the sliders to assign importance (1–5) to each criterion:</p>
+    <p>Use the sliders to assign importance (0–5) to each criterion:</p>
     <ul>
         <li>Aircraft Cruise Speed</li>
         <li>Total Energy Required</li>
@@ -207,8 +207,8 @@ st.write("""For more information, please contact us at :
          - iattafi3@gatech.edu
          - gklinger7@gatech.edu
          - nmirkhelkar7@gatech.edu
-         - dshauib3@gatech.edu
          - drobinson321@gatech.edu
+         - dshauib3@gatech.edu
          """)
 
 
@@ -224,22 +224,9 @@ with col_footer_right:
     st.markdown(
         """
         <div style='text-align: right; margin-top: -25px;'>
-            <img src='https://www.asdl.gatech.edu/images/hero/ASDL-Icon-sketchy-blue%2Bgold.gif' width='150'>
+            <img src='https://www.nasa.gov/wp-content/themes/nasa/assets/images/nasa-logo.svg' width='150'>
         </div>
         """,
         unsafe_allow_html=True
     )
-
-
-
-
-
-
-
-
-
-
-
-
-
 
